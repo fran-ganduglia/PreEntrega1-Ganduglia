@@ -10,6 +10,11 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from "react-router-dom";
+import Drawer from "../Drawer/Drawer"
+
+
+
 
 
 const pages = ['Productos', 'Sobre Nosotros'];
@@ -39,11 +44,10 @@ const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+        <Link to="/">
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
@@ -53,8 +57,9 @@ const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
               color: "white",
             }}
           >
-            Jugueteria Carlitos
+            Miscelaneos Carlitos
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -93,15 +98,18 @@ const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "center", textAlign: "center" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+              
+              <Drawer  />
+              
+
+              <Link to="/contacto">
+                <Button
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: 'flex', mr: 10  }}
-              >
-                {page}
+                sx={{ my: 2, color: "white", display: 'flex', mr: 10,   }}
+                >
+                <Typography sx={{ textDecoration:"none",}}>Contacto</Typography>
               </Button>
-            ))}
+              </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -110,6 +118,7 @@ const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
                 <CartWidget />
               </IconButton>
             </Tooltip>
+            <span>1</span>
             <Menu
               sx={{ mt: '25px' }}
               id="menu-appbar"

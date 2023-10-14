@@ -1,0 +1,6 @@
+flex-cards{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-self: center;
+}
