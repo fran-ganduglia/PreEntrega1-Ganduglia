@@ -118,7 +118,6 @@ const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
                 <CartWidget />
               </IconButton>
             </Tooltip>
-            <span>1</span>
             <Menu
               sx={{ mt: '25px' }}
               id="menu-appbar"

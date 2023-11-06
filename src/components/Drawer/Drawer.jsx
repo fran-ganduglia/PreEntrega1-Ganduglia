@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemText from '@mui/material/ListItemText'
 import { Link } from 'react-router-dom';
 
 
@@ -30,22 +30,25 @@ export default function TemporaryDrawer() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      
       <List>
-      <Link to="/category/joyeria">
+      <Link to= {`productos/jewelery`}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemText primary='Joyeria' />
             </ListItemButton>
           </ListItem>
-          </Link>
-          <Link to="/category/ropa">
+      </Link>
+     
+      <Link to= {`productos/men's clothing`}>
           <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary='Ropa' />
           </ListItemButton>
         </ListItem>
-        </Link>
-        <Link to="/category/tecnologia">
+      </Link>
+
+      <Link to= {`productos/electronics`}> 
         <ListItem disablePadding>
         <ListItemButton>
           <ListItemText primary='Tecnología' />
@@ -53,6 +56,7 @@ export default function TemporaryDrawer() {
       </ListItem>
       </Link>
       </List>
+     
       <Divider />
     </Box>
   );

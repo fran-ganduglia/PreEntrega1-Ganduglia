@@ -4,13 +4,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import * as React from 'react';
-import "./CardFlex.css"
+import "../../App.css"
+
 
 const CardProduct = ({products}) => {
     const { image, title, price } = products;
   return (
-    <div className='flex-cards'>
-    <Card sx={{ maxWidth: 345, mt: 20, ml: 30, }}>
+    <div className="flex-cards">
+    <Card className="flex-cards" sx={{ maxWidth: 345, mt: 20, ml: 30, }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -26,7 +27,7 @@ const CardProduct = ({products}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions sx= {{display: 'flex', justifyContent: 'space-around'}}>
+      <CardActions>
         <Button size="small" >
           Comprar Ahora
         </Button>

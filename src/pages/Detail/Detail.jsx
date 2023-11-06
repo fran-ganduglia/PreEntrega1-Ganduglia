@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CardProduct from "../../components/Card/CardProduct"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config"
+import DetailCard from './DetailCard';
 
 const darkTheme = createTheme({
   palette: {
@@ -17,13 +20,17 @@ const Detail = () => {
     
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-    .then(res=>res.json())
-    .then(json=>setProducts(json))
+    const docRef = doc(db, "Products", id)
+    getDoc(docRef)
+    .then((resp) => {
+      setProducts(
+        { ...resp.data(), id: resp.id }
+      );
+    });
   }, [id])
   return(
     <ThemeProvider theme={darkTheme}>
-    <CardProduct products={products} />
+    <DetailCard products={products} />
     </ThemeProvider>
   );
 };
